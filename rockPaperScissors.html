@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors Game Assignment</h1>
+
+    <label class="play">Let's play!
+    <select>
+        <option value="">Select a thing</option>
+        <option value="rock">Rock</option>
+        <option value="paper">Paper</option>
+        <option value="scissors">Scissors</option>
+    </select>
+    </label>
+
+    <script>
+        // JavaScript goes here!
+        console.log("Hello, World!")
+    </script>
+</body>
+
+</html>
+
+
+function game() {
+
+    function playRound() {
+
+        function getComputerChoice() {
+            var things = ['rock', 'paper', 'scissors'];
+            var computerChoice = things[Math.floor(Math.random()*things.length)];
+            alert("The computer's choice is: " + computerChoice);
+            return computerChoice;
+        }
+
+        function getPlayerChoice() {
+            while(true) {
+            let playerChoice = prompt("Let's play! Pick one: rock, paper, or scissors!").toLowerCase();
+                if (playerChoice === "rock" || playerChoice === "paper" || playerChoice === "scissors") {
+                    return playerChoice;
+                } else {
+                    alert("Please enter either rock, paper, or scissors.")
+                }
+            }
+        }
+
+        let playerChoice = getPlayerChoice();
+        let computerChoice = getComputerChoice();
+
+        if (playerChoice === "rock" && computerChoice === "scissors") {
+            alert("You win! Rock beats scissors!");
+            return "player";
+        } else if (playerChoice === "rock" && computerChoice === "paper") {
+            alert("You lose! Paper beats rock!");
+            return "computer";
+        } else if (playerChoice === "paper" && computerChoice === "rock") {
+            alert("You win! Paper beats rock!");
+            return "player";
+        } else if (playerChoice === "paper" && computerChoice === "scissors") {
+            alert("You lose! Scissors beats paper!");
+            return "computer";
+        } else if (playerChoice === "scissors" && computerChoice === "rock") {
+            alert("You lose! Rock beats scissors!");
+            return "computer";
+        } else if (playerChoice === "scissors" && computerChoice === "paper") {
+            alert("You win! Scissors beats paper!");
+            return "player";
+        } else {
+            alert("Hmm, looks like we have a tie.");
+            return "tie";
+        }
+    }
+
+    var playerWins = 0;
+    var computerWins = 0;
+
+    for(round = 1; round < 6; round++) {
+        alert("This is round number " + round);
+        switch (playRound()) {
+            case "player":
+                playerWins = playerWins + 1;
+                break;
+            case "computer":
+                computerWins++;
+                break;
+        }
+    }
+
+    if (playerWins > computerWins) {
+        alert("You win!");
+    } else if (computerWins > playerWins) {
+        alert("Too bad, the computer won.");
+    } else {
+        alert("Wow! It looks like you had a tie!")
+    }
+}
+
+
+BASIC OUTLINE OF FUNCTIONS
+1. Player selects rock/paper/scissors
+2. Computer randomly selects rock/paper/scissors
+3. Computer's selection is displayed
+4. Alert revealed showing who won the round
+5. Score tallied
+6. 5 rounds performed
+7. Winner announced
+
+GRAPHICS
+1. pictures of rock/paper/scissors
+2. score board player versus computer
+3. graphic for computer's selection
+
+
+
